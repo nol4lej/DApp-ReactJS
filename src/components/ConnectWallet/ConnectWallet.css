@@ -1,0 +1,71 @@
+.wallet__container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+/* WALLET CONNECT BUTTON */
+
+.wallet__connect{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: solid 1px black;
+    padding: 6px 8px;
+    border-radius: 10px;
+}
+
+.metamask__icon{
+    width: 25px;
+    height: 25px;
+}
+
+/* WALLET BALANCE */
+
+.wallet__balance__container{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: solid 1px black;
+    padding: 6px 8px;
+    border-radius: 10px;
+}
+
+.wallet__balance{
+    font-size: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 6px 8px;
+}
+
+.wallet__balance__icon{
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+}
+
+
+/* WALLET ADDRES + DISCONNECT BUTTON */
+
+.wallet__address__container{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: solid 1px black;
+    padding: 6px 8px;
+    border-radius: 10px;
+}
+
+.wallet__adress{
+    font-size: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 6px 8px;
+}
+
+.wallet__logout{
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+}

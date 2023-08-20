@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from './views/Home'
+import Home from './views/Home/Home'
 import Nav from './components/Nav/Nav'
-import { Web3Provider } from './utils/Web3Context'
+import { Web3Provider } from './components/Web3Context'
 
 function App() {
   return (

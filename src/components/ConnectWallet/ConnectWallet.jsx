@@ -1,21 +1,18 @@
 // import MetaMaskSDK from "@metamask/sdk";
 import { useState, useEffect, useContext } from "react"
-import { Web3Context } from "../../utils/Web3Context"
+import { Web3Context } from "../Web3Context"
+import "./ConnectWallet.css"
+import { CgCloseR } from "react-icons/cg"
+import { BiSolidWallet } from "react-icons/bi"
+import MetaMaskIcon from "../../../public/metamask.png"
 
 const ConnectWallet = () => {
 
-    const web3 = useContext(Web3Context)
+    const { web3, provider, updateConnectedWallet } = useContext(Web3Context)
 
-    const [provider, setProvider] = useState(null)
     const [buttonText, setButtonText] = useState("")
     const [walletAddress, setWalletAddress] = useState("")
     const [balance, setBalance] = useState("")
-
-    useEffect(() => {
-        if(window.ethereum){ 
-            setProvider(window.ethereum)
-        }
-    }, [])
 
     const connectWallet = async () => {
         if(!provider){
@@ -25,6 +22,7 @@ const ConnectWallet = () => {
         try {
             const resp = await provider.request({method: 'eth_requestAccounts'})
             setWalletAddress(resp[0])
+            updateConnectedWallet(resp[0]) // acutalizo la wallet en el Web3Context
         } catch (error) {
             console.error(error.message)
         }
@@ -64,7 +62,7 @@ const ConnectWallet = () => {
         if(!provider){
             setButtonText("Install MetaMask")
         } else if (walletAddress){
-            setButtonText("Disconnect")
+            setButtonText(<CgCloseR />)
         } else {
             setButtonText("Connect Wallet")
         }
@@ -73,6 +71,7 @@ const ConnectWallet = () => {
     const disconnectWallet = () => {
         setWalletAddress(null)
         setBalance(null)
+        updateConnectedWallet(null) // acutalizo la wallet en el Web3Context
         return
     }
 
@@ -82,14 +81,15 @@ const ConnectWallet = () => {
             { walletAddress ? (
                 <div className="wallet__container">
                     <div className="wallet__balance__container">
-                        <p className="wallet__balance">{balance}</p>
+                        <p className="wallet__balance">{balance} DEV</p>
+                        <i className="wallet__balance__icon"><BiSolidWallet /></i>
                     </div>
                     <div className="wallet__address__container">
-                        <p className="wallet__adress">{walletAddress}</p>
+                        <p className="wallet__adress">{walletAddress.slice(0,6)+"..."+walletAddress.slice(0,4)}</p>
                         <button className="wallet__logout" onClick={disconnectWallet}>{buttonText}</button>
                     </div>
                 </div>
-            ) : ( <button onClick={connectWallet}>{buttonText}</button> ) }
+            ) : ( <button className="wallet__connect" onClick={connectWallet}><img src={MetaMaskIcon} className="metamask__icon"></img>{buttonText}</button> ) }
         </section>
     )
 }

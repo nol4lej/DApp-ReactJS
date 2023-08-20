@@ -1,0 +1,36 @@
+.info{
+    margin: 12px;
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+/* CONNECTED INFO */
+
+.info__conntected{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.info__conntected__title{
+    font-size: 25px;
+}
+
+.info__connected__link{
+    color: red;
+}
+
+
+/* DISCONNECT INFO */
+
+.info__disconnect{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.info__icon{
+    display: flex;
+}
