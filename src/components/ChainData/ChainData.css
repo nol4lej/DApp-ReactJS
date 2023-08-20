@@ -4,3 +4,25 @@
     border-radius: 5px;
     padding: 20px;
 }
+
+.chaindata__connected{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chaindata__content{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chaindata__blockinfo{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.chaindata__result{
+    word-wrap: break-word;
+}

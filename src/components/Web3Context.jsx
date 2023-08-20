@@ -11,12 +11,11 @@ export const Web3Provider = ({children}) => {
     const [connectedWallet, setConnectedWallet] = useState(null)
 
     useEffect(() => {
-        // wss://moonbeam-alpha.api.onfinality.io/public-ws
         const resp = new Web3("wss://moonbeam-alpha.api.onfinality.io/public-ws");
         resp.eth.net.isListening()
             .then(() => setWeb3(resp))
             .catch(() => setWeb3(null))
-    }, [web3])
+    }, [])
 
     useEffect(() => {
         if(window.ethereum){ 
